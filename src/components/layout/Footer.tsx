@@ -41,7 +41,7 @@ export function Footer() {
     <footer style={{ backgroundColor: "var(--footer-bg)" }} className="text-white">
       {/* Main Footer */}
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-10">
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-3 mb-6">
@@ -66,6 +66,9 @@ export function Footer() {
 
           {/* Diamonds Column */}
           <FooterColumn title="Diamonds" links={footerLinks.diamonds} />
+
+          {/* Jewelry Column */}
+          <FooterColumn title="Jewelry" links={footerLinks.jewelry} />
 
           {/* Learn Column */}
           <FooterColumn title="Learn" links={footerLinks.learn} />

@@ -44,7 +44,7 @@ export default function CategoryShowcase() {
                 href={`/diamonds?shapes=${cat.shape.toLowerCase()}`}
                 className="group flex flex-col items-center border border-border bg-card p-4 sm:p-6 text-center transition-all duration-300 hover:border-foreground"
               >
-                {/* Shape — photo with video on hover */}
+                {/* Diamond shape — video default, photo on hover */}
                 <div className="relative mb-4 h-20 w-20 overflow-hidden rounded-full">
                   <HoverVideo
                     imageSrc={getShapeImage(cat.shape.toLowerCase() as any)}

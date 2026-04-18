@@ -1,6 +1,7 @@
 export const navigation = {
   main: [
     { label: "Diamonds", href: "/diamonds" },
+    { label: "Jewelry", href: "/jewelry" },
     { label: "Categories", href: "/categories" },
     { label: "Education", href: "/education" },
     { label: "Custom Order", href: "/custom-order" },
@@ -14,6 +15,13 @@ export const navigation = {
       { label: "Princess", href: "/diamonds?shapes=princess" },
       { label: "Emerald", href: "/diamonds?shapes=emerald" },
       { label: "Oval", href: "/diamonds?shapes=oval" },
+    ],
+    jewelry: [
+      { label: "All Jewelry", href: "/jewelry" },
+      { label: "Rings", href: "/jewelry?category=rings" },
+      { label: "Earrings", href: "/jewelry?category=earrings" },
+      { label: "Bracelets", href: "/jewelry?category=bracelets" },
+      { label: "Necklaces", href: "/jewelry?category=necklaces" },
     ],
     learn: [
       { label: "Diamond Education", href: "/education" },
