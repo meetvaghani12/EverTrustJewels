@@ -1,26 +1,418 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ═══════════════════════════════════════════════════
+   DARK THEMES
+   ═══════════════════════════════════════════════════ */
+
+/* ─── 1: Cartier Crimson Noir ─── */
+.theme-cartier-crimson {
+  --background: #1A0A0A;
+  --background-soft: #201010;
+  --foreground: #F5EDE3;
+  --card: #2A1215;
+  --card-hover: #351A1E;
+  --platinum: #8B1A2B;
+  --ice-blue: #8B1A2B;
+  --border: #3D1F22;
+  --text-secondary: #A89585;
+  --accent: #8B1A2B;
+  --accent-hover: #A52035;
+  --hero-gradient-from: #1A0A0A;
+  --hero-gradient-via: #200E0E;
+  --hero-gradient-to: #2A1215;
+  --header-bg: rgba(26, 10, 10, 0.92);
+  --header-border: #3D1F22;
+  --selection-bg: #8B1A2B;
+  --selection-text: #F5EDE3;
+  --glow-from: rgba(139, 26, 43, 0.2);
+  --glow-to: rgba(139, 26, 43, 0.05);
+  --footer-bg: #0F0505;
 }
+
+/* ─── 3: Harry Winston Midnight ─── */
+.theme-harry-winston {
+  --background: #0B0E14;
+  --background-soft: #101520;
+  --foreground: #E8E8ED;
+  --card: #141821;
+  --card-hover: #1A1F2A;
+  --platinum: #A8B4C4;
+  --ice-blue: #A8B4C4;
+  --border: #1E2533;
+  --text-secondary: #6B7B8D;
+  --accent: #A8B4C4;
+  --accent-hover: #C0CAD8;
+  --hero-gradient-from: #0B0E14;
+  --hero-gradient-via: #0E1219;
+  --hero-gradient-to: #141821;
+  --header-bg: rgba(11, 14, 20, 0.92);
+  --header-border: #1E2533;
+  --selection-bg: #A8B4C4;
+  --selection-text: #0B0E14;
+  --glow-from: rgba(168, 180, 196, 0.12);
+  --glow-to: rgba(168, 180, 196, 0.03);
+  --footer-bg: #060810;
+}
+
+/* ─── 5: Bulgari Emerald ─── */
+.theme-bulgari-emerald {
+  --background: #0A1A14;
+  --background-soft: #0F2019;
+  --foreground: #EDE8E0;
+  --card: #122420;
+  --card-hover: #1A3028;
+  --platinum: #2D8B6A;
+  --ice-blue: #2D8B6A;
+  --border: #1D3D32;
+  --text-secondary: #7A9488;
+  --accent: #2D8B6A;
+  --accent-hover: #38A57E;
+  --hero-gradient-from: #0A1A14;
+  --hero-gradient-via: #0E1E17;
+  --hero-gradient-to: #142A22;
+  --header-bg: rgba(10, 26, 20, 0.92);
+  --header-border: #1D3D32;
+  --selection-bg: #2D8B6A;
+  --selection-text: #EDE8E0;
+  --glow-from: rgba(45, 139, 106, 0.18);
+  --glow-to: rgba(45, 139, 106, 0.04);
+  --footer-bg: #050F0A;
+}
+
+/* ─── 8: Obsidian & Gold ─── */
+.theme-obsidian-gold {
+  --background: #0C0C0C;
+  --background-soft: #141414;
+  --foreground: #F0ECE4;
+  --card: #181818;
+  --card-hover: #202020;
+  --platinum: #D4A853;
+  --ice-blue: #D4A853;
+  --border: #2A2A2A;
+  --text-secondary: #8C8272;
+  --accent: #D4A853;
+  --accent-hover: #C09540;
+  --hero-gradient-from: #0C0C0C;
+  --hero-gradient-via: #100E0A;
+  --hero-gradient-to: #1A1610;
+  --header-bg: rgba(12, 12, 12, 0.92);
+  --header-border: #2A2A2A;
+  --selection-bg: #D4A853;
+  --selection-text: #0C0C0C;
+  --glow-from: rgba(212, 168, 83, 0.18);
+  --glow-to: rgba(212, 168, 83, 0.04);
+  --footer-bg: #060606;
+}
+
+/* ─── 9: Graff Sapphire ─── */
+.theme-graff-sapphire {
+  --background: #0D1117;
+  --background-soft: #131920;
+  --foreground: #E6EDF3;
+  --card: #161B22;
+  --card-hover: #1C232D;
+  --platinum: #4B6CB7;
+  --ice-blue: #4B6CB7;
+  --border: #21262D;
+  --text-secondary: #768BA8;
+  --accent: #4B6CB7;
+  --accent-hover: #5A7DC8;
+  --hero-gradient-from: #0D1117;
+  --hero-gradient-via: #0F151E;
+  --hero-gradient-to: #141C28;
+  --header-bg: rgba(13, 17, 23, 0.92);
+  --header-border: #21262D;
+  --selection-bg: #4B6CB7;
+  --selection-text: #E6EDF3;
+  --glow-from: rgba(75, 108, 183, 0.18);
+  --glow-to: rgba(75, 108, 183, 0.04);
+  --footer-bg: #080B0F;
+}
+
+/* ─── 12: Velvet Aubergine ─── */
+.theme-velvet-aubergine {
+  --background: #120D15;
+  --background-soft: #18121C;
+  --foreground: #E8E0EC;
+  --card: #1C1520;
+  --card-hover: #241C28;
+  --platinum: #8B5E83;
+  --ice-blue: #8B5E83;
+  --border: #2D2233;
+  --text-secondary: #8A7B90;
+  --accent: #8B5E83;
+  --accent-hover: #A07098;
+  --hero-gradient-from: #120D15;
+  --hero-gradient-via: #16101A;
+  --hero-gradient-to: #1E1524;
+  --header-bg: rgba(18, 13, 21, 0.92);
+  --header-border: #2D2233;
+  --selection-bg: #8B5E83;
+  --selection-text: #E8E0EC;
+  --glow-from: rgba(139, 94, 131, 0.18);
+  --glow-to: rgba(139, 94, 131, 0.04);
+  --footer-bg: #0A070C;
+}
+
+/* ═══════════════════════════════════════════════════
+   LIGHT THEMES
+   ═══════════════════════════════════════════════════ */
+
+/* ─── 2: Tiffany Dawn ─── */
+.theme-tiffany-dawn {
+  --background: #FAFAFA;
+  --background-soft: #F5F5F5;
+  --foreground: #1A1A1A;
+  --card: #FFFFFF;
+  --card-hover: #F8FCFC;
+  --platinum: #0ABAB5;
+  --ice-blue: #0ABAB5;
+  --border: #E5E7EB;
+  --text-secondary: #6B7280;
+  --accent: #0ABAB5;
+  --accent-hover: #08A5A0;
+  --hero-gradient-from: #FAFAFA;
+  --hero-gradient-via: #F5FAFA;
+  --hero-gradient-to: #EDF7F7;
+  --header-bg: rgba(250, 250, 250, 0.92);
+  --header-border: #E5E7EB;
+  --selection-bg: #0ABAB5;
+  --selection-text: #FFFFFF;
+  --glow-from: rgba(10, 186, 181, 0.15);
+  --glow-to: rgba(10, 186, 181, 0.04);
+  --footer-bg: #1A1A1A;
+}
+
+/* ─── 4: Champagne & Pearl ─── */
+.theme-champagne-pearl {
+  --background: #FAF7F2;
+  --background-soft: #F5F0E8;
+  --foreground: #2C2420;
+  --card: #FFFFFF;
+  --card-hover: #FFFCF7;
+  --platinum: #C4A265;
+  --ice-blue: #C4A265;
+  --border: #E8E0D4;
+  --text-secondary: #8A7D72;
+  --accent: #C4A265;
+  --accent-hover: #B39155;
+  --hero-gradient-from: #FAF7F2;
+  --hero-gradient-via: #FDF9F3;
+  --hero-gradient-to: #F5EDE0;
+  --header-bg: rgba(250, 247, 242, 0.92);
+  --header-border: #E8E0D4;
+  --selection-bg: #C4A265;
+  --selection-text: #FFFFFF;
+  --glow-from: rgba(196, 162, 101, 0.18);
+  --glow-to: rgba(196, 162, 101, 0.04);
+  --footer-bg: #2C2420;
+}
+
+/* ─── 6: De Beers Platinum ─── */
+.theme-debeers-platinum {
+  --background: #F4F4F5;
+  --background-soft: #EDEDEE;
+  --foreground: #18181B;
+  --card: #FFFFFF;
+  --card-hover: #FAFAFA;
+  --platinum: #71717A;
+  --ice-blue: #71717A;
+  --border: #E4E4E7;
+  --text-secondary: #A1A1AA;
+  --accent: #52525B;
+  --accent-hover: #3F3F46;
+  --hero-gradient-from: #F4F4F5;
+  --hero-gradient-via: #F8F8F9;
+  --hero-gradient-to: #EDEDEE;
+  --header-bg: rgba(244, 244, 245, 0.92);
+  --header-border: #E4E4E7;
+  --selection-bg: #52525B;
+  --selection-text: #FFFFFF;
+  --glow-from: rgba(113, 113, 122, 0.12);
+  --glow-to: rgba(113, 113, 122, 0.03);
+  --footer-bg: #18181B;
+}
+
+/* ─── 7: Van Cleef Rosé ─── */
+.theme-vancleef-rose {
+  --background: #FDF8F6;
+  --background-soft: #F9F0ED;
+  --foreground: #3D2B2B;
+  --card: #FFFFFF;
+  --card-hover: #FFF8F6;
+  --platinum: #C27B7F;
+  --ice-blue: #C27B7F;
+  --border: #EDDCDA;
+  --text-secondary: #9A8080;
+  --accent: #C27B7F;
+  --accent-hover: #B06A6E;
+  --hero-gradient-from: #FDF8F6;
+  --hero-gradient-via: #FFF5F3;
+  --hero-gradient-to: #F9EDED;
+  --header-bg: rgba(253, 248, 246, 0.92);
+  --header-border: #EDDCDA;
+  --selection-bg: #C27B7F;
+  --selection-text: #FFFFFF;
+  --glow-from: rgba(194, 123, 127, 0.18);
+  --glow-to: rgba(194, 123, 127, 0.04);
+  --footer-bg: #3D2B2B;
+}
+
+/* ─── 10: Ivory Atelier ─── */
+.theme-ivory-atelier {
+  --background: #F8F5F0;
+  --background-soft: #F0EBE3;
+  --foreground: #2B2623;
+  --card: #FFFDF8;
+  --card-hover: #FFF9F0;
+  --platinum: #9C7C5C;
+  --ice-blue: #9C7C5C;
+  --border: #E3DCD3;
+  --text-secondary: #7D7168;
+  --accent: #9C7C5C;
+  --accent-hover: #8A6B4C;
+  --hero-gradient-from: #F8F5F0;
+  --hero-gradient-via: #FBF7F0;
+  --hero-gradient-to: #F0EBE0;
+  --header-bg: rgba(248, 245, 240, 0.92);
+  --header-border: #E3DCD3;
+  --selection-bg: #9C7C5C;
+  --selection-text: #FFFFFF;
+  --glow-from: rgba(156, 124, 92, 0.15);
+  --glow-to: rgba(156, 124, 92, 0.04);
+  --footer-bg: #2B2623;
+}
+
+/* ─── 11: Chopard Ice ─── */
+.theme-chopard-ice {
+  --background: #F0F3F7;
+  --background-soft: #E8ECF2;
+  --foreground: #1B2332;
+  --card: #FFFFFF;
+  --card-hover: #F5F8FC;
+  --platinum: #3A7CA5;
+  --ice-blue: #3A7CA5;
+  --border: #D8DEE8;
+  --text-secondary: #5A6B7E;
+  --accent: #3A7CA5;
+  --accent-hover: #2E6A90;
+  --hero-gradient-from: #F0F3F7;
+  --hero-gradient-via: #F2F6FA;
+  --hero-gradient-to: #E8EEF5;
+  --header-bg: rgba(240, 243, 247, 0.92);
+  --header-border: #D8DEE8;
+  --selection-bg: #3A7CA5;
+  --selection-text: #FFFFFF;
+  --glow-from: rgba(58, 124, 165, 0.15);
+  --glow-to: rgba(58, 124, 165, 0.04);
+  --footer-bg: #1B2332;
+}
+
+/* ═══════════════════════════════════════════════════
+   THEME TOKENS → TAILWIND
+   ═══════════════════════════════════════════════════ */
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-soft: var(--background-soft);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+  --color-platinum: var(--platinum);
+  --color-ice-blue: var(--ice-blue);
+  --color-border: var(--border);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-jost);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--platinum);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground);
+}
+
+/* Selection color */
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-text);
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(45deg); }
+  50% { transform: translateY(-12px) rotate(45deg); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroScaleIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes gentlePulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+.hero-fade-up {
+  animation: heroFadeUp 0.7s ease-out both;
+}
+
+.hero-fade-up-1 {
+  animation: heroFadeUp 0.7s ease-out 0.15s both;
+}
+
+.hero-fade-up-2 {
+  animation: heroFadeUp 0.7s ease-out 0.3s both;
+}
+
+.hero-scale-in {
+  animation: heroScaleIn 1s ease-out 0.3s both;
+}
+
+.glow-pulse {
+  animation: gentlePulse 4s ease-in-out infinite;
 }
