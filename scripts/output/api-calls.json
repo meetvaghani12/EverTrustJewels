@@ -1,0 +1,337 @@
+[
+  {
+    "url": "https://www.aaronandson.com/cdn-cgi/speculation",
+    "status": 200,
+    "size": 128
+  },
+  {
+    "url": "https://api.retailjewels.com/api/Auth/TokenLogin/login",
+    "status": 200,
+    "size": 318
+  },
+  {
+    "url": "https://ct.pinterest.com/user/?tid=2613248326578&cb=1776502924468&dep=2%2CPAGE_LOAD",
+    "status": 200,
+    "size": 327
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetAffiliatedMetaTag",
+    "status": 200,
+    "size": 436
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetCategoryDetails?GroupId=b7925261-2510-432c-a432-732a60be6370",
+    "status": 200,
+    "size": 2694
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetBrandingImages",
+    "status": 200,
+    "size": 504
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetAllJewelleryCollection",
+    "status": 200,
+    "size": 1262
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetProductDeliveryDate",
+    "status": 200,
+    "size": 89
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetDeliveryDate",
+    "status": 200,
+    "size": 65
+  },
+  {
+    "url": "https://cdn-account.optimonk.com/181649/accountInfo.json?v=1776258612376",
+    "status": 200,
+    "size": 101284
+  },
+  {
+    "url": "https://cdn-account.optimonk.com/181649/campaigns.json?v=1776258671191",
+    "status": 200,
+    "size": 80919
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetThumbnailProductSearch",
+    "status": 200,
+    "size": 45823
+  },
+  {
+    "url": "https://api.livechatinc.com/v3.6/customer/action/get_dynamic_configuration?x-region=us-south1&license_id=7480691&client_id=c5e4f61e1a6c3b1521b541bc5c5a2ac5&url=https%3A%2F%2Fwww.aaronandson.com%2Frings%2Fdiamond-engagement-rings&channel_type=code&jsonp=__kzkg5eqrmq",
+    "status": 200,
+    "size": 367
+  },
+  {
+    "url": "https://api.livechatinc.com/v3.6/customer/action/get_configuration?organization_id=395d20fa-e63d-46de-8690-b740e7b69a51&version=4039.0.5.3300.67.48.57.15.23.15.7.15.3&x-region=us-south1&group_id=0&jsonp=__lc_static_config",
+    "status": 200,
+    "size": 5364
+  },
+  {
+    "url": "https://api.livechatinc.com/v3.6/customer/action/get_localization?organization_id=395d20fa-e63d-46de-8690-b740e7b69a51&version=388cc59aa204dd75bec8ffb1b5c1735d_38be09edc551eaa60a5329f7a639cce5&language=en&x-region=us-south1&group_id=0&jsonp=__lc_localization",
+    "status": 200,
+    "size": 13268
+  },
+  {
+    "url": "https://accounts.livechatinc.com/v2/customer/token",
+    "status": 200,
+    "size": 201
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetThumbnailProductSearch",
+    "status": 200,
+    "size": 37265
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetThumbnailProductSearch",
+    "status": 200,
+    "size": 37295
+  },
+  {
+    "url": "https://www.aaronandson.com/cdn-cgi/speculation",
+    "status": 200,
+    "size": 128
+  },
+  {
+    "url": "https://ct.pinterest.com/user/?tid=2613248326578&pd=%7B%22pin_unauth%22%3A%22dWlkPU1tRXlNREU0WkRFdE9ESXpPQzAwWVdVeExUZ3hPVGN0TVdGbE56a3pZVEkyWWpKag%22%7D&cb=1776502945174&dep=2%2CPAGE_LOAD",
+    "status": 200,
+    "size": 327
+  },
+  {
+    "url": "https://cdn-account.optimonk.com/181649/campaigns.json?v=1776258671191",
+    "status": 304,
+    "size": 80919
+  },
+  {
+    "url": "https://cdn-account.optimonk.com/181649/accountInfo.json?v=1776258612376",
+    "status": 304,
+    "size": 101284
+  },
+  {
+    "url": "https://api.retailjewels.com/api/Auth/TokenLogin/login",
+    "status": 200,
+    "size": 318
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetAllJewelleryCollection",
+    "status": 200,
+    "size": 945
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetCategoryDetails?GroupId=3214754f-fcba-4631-bc2a-0246c61e36b0",
+    "status": 200,
+    "size": 2957
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetAffiliatedMetaTag",
+    "status": 200,
+    "size": 432
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetProductDeliveryDate",
+    "status": 200,
+    "size": 89
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetBrandingImages",
+    "status": 200,
+    "size": 498
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetDeliveryDate",
+    "status": 200,
+    "size": 65
+  },
+  {
+    "url": "https://api.livechatinc.com/v3.6/customer/action/get_dynamic_configuration?x-region=us-south1&license_id=7480691&client_id=c5e4f61e1a6c3b1521b541bc5c5a2ac5&url=https%3A%2F%2Fwww.aaronandson.com%2Fearrings%2Fstud-diamond-earrings&channel_type=code&jsonp=__tuqeo6ovfs",
+    "status": 200,
+    "size": 367
+  },
+  {
+    "url": "https://api.livechatinc.com/v3.6/customer/action/get_configuration?organization_id=395d20fa-e63d-46de-8690-b740e7b69a51&version=4039.0.5.3300.67.48.57.15.23.15.7.15.3&x-region=us-south1&group_id=0&jsonp=__lc_static_config",
+    "status": 200,
+    "size": 5364
+  },
+  {
+    "url": "https://api.livechatinc.com/v3.6/customer/action/get_localization?organization_id=395d20fa-e63d-46de-8690-b740e7b69a51&version=388cc59aa204dd75bec8ffb1b5c1735d_38be09edc551eaa60a5329f7a639cce5&language=en&x-region=us-south1&group_id=0&jsonp=__lc_localization",
+    "status": 200,
+    "size": 13268
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetThumbnailProductSearch",
+    "status": 200,
+    "size": 45788
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetThumbnailProductSearch",
+    "status": 200,
+    "size": 36885
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetThumbnailProductSearch",
+    "status": 200,
+    "size": 35299
+  },
+  {
+    "url": "https://www.aaronandson.com/cdn-cgi/speculation",
+    "status": 200,
+    "size": 128
+  },
+  {
+    "url": "https://cdn-account.optimonk.com/181649/accountInfo.json?v=1776258612376",
+    "status": 304,
+    "size": 101284
+  },
+  {
+    "url": "https://cdn-account.optimonk.com/181649/campaigns.json?v=1776258671191",
+    "status": 304,
+    "size": 80919
+  },
+  {
+    "url": "https://ct.pinterest.com/user/?tid=2613248326578&pd=%7B%22pin_unauth%22%3A%22dWlkPU1tRXlNREU0WkRFdE9ESXpPQzAwWVdVeExUZ3hPVGN0TVdGbE56a3pZVEkyWWpKag%22%7D&cb=1776502963526&dep=2%2CPAGE_LOAD",
+    "status": 200,
+    "size": 327
+  },
+  {
+    "url": "https://api.retailjewels.com/api/Auth/TokenLogin/login",
+    "status": 200,
+    "size": 318
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetProductDeliveryDate",
+    "status": 200,
+    "size": 89
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetDeliveryDate",
+    "status": 200,
+    "size": 65
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetAffiliatedMetaTag",
+    "status": 200,
+    "size": 479
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetAllJewelleryCollection",
+    "status": 200,
+    "size": 1020
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetBrandingImages",
+    "status": 200,
+    "size": 484
+  },
+  {
+    "url": "https://api.livechatinc.com/v3.6/customer/action/get_dynamic_configuration?x-region=us-south1&license_id=7480691&client_id=c5e4f61e1a6c3b1521b541bc5c5a2ac5&url=https%3A%2F%2Fwww.aaronandson.com%2Fbracelets%2Ftennis-bracelets&channel_type=code&jsonp=__ckd1aq95fm",
+    "status": 200,
+    "size": 367
+  },
+  {
+    "url": "https://api.livechatinc.com/v3.6/customer/action/get_configuration?organization_id=395d20fa-e63d-46de-8690-b740e7b69a51&version=4039.0.5.3300.67.48.57.15.23.15.7.15.3&x-region=us-south1&group_id=0&jsonp=__lc_static_config",
+    "status": 200,
+    "size": 5364
+  },
+  {
+    "url": "https://api.livechatinc.com/v3.6/customer/action/get_localization?organization_id=395d20fa-e63d-46de-8690-b740e7b69a51&version=388cc59aa204dd75bec8ffb1b5c1735d_38be09edc551eaa60a5329f7a639cce5&language=en&x-region=us-south1&group_id=0&jsonp=__lc_localization",
+    "status": 200,
+    "size": 13268
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetCategoryDetails?GroupId=8ed5c7da-6a9e-4ba7-8be2-ea4f18c666d3",
+    "status": 200,
+    "size": 2796
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetThumbnailProductSearch",
+    "status": 200,
+    "size": 47637
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetThumbnailProductSearch",
+    "status": 200,
+    "size": 36097
+  },
+  {
+    "url": "https://www.aaronandson.com/cdn-cgi/speculation",
+    "status": 200,
+    "size": 128
+  },
+  {
+    "url": "https://ct.pinterest.com/user/?tid=2613248326578&pd=%7B%22pin_unauth%22%3A%22dWlkPU1tRXlNREU0WkRFdE9ESXpPQzAwWVdVeExUZ3hPVGN0TVdGbE56a3pZVEkyWWpKag%22%7D&cb=1776502982139&dep=2%2CPAGE_LOAD",
+    "status": 200,
+    "size": 327
+  },
+  {
+    "url": "https://cdn-account.optimonk.com/181649/accountInfo.json?v=1776258612376",
+    "status": 304,
+    "size": 101284
+  },
+  {
+    "url": "https://cdn-account.optimonk.com/181649/campaigns.json?v=1776258671191",
+    "status": 304,
+    "size": 80919
+  },
+  {
+    "url": "https://api.retailjewels.com/api/Auth/TokenLogin/login",
+    "status": 200,
+    "size": 318
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetAllJewelleryCollection",
+    "status": 200,
+    "size": 1259
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetDeliveryDate",
+    "status": 200,
+    "size": 65
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetProductDeliveryDate",
+    "status": 200,
+    "size": 89
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetCategoryDetails?GroupId=50fec4cf-a897-4c35-8675-da99e70e09ea",
+    "status": 200,
+    "size": 2679
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetBrandingImages",
+    "status": 200,
+    "size": 483
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetAffiliatedMetaTag",
+    "status": 200,
+    "size": 410
+  },
+  {
+    "url": "https://api.livechatinc.com/v3.6/customer/action/get_dynamic_configuration?x-region=us-south1&license_id=7480691&client_id=c5e4f61e1a6c3b1521b541bc5c5a2ac5&url=https%3A%2F%2Fwww.aaronandson.com%2Fpendant%2Fdiamond-pendant&channel_type=code&jsonp=__31kawy8zqs4",
+    "status": 200,
+    "size": 368
+  },
+  {
+    "url": "https://api.livechatinc.com/v3.6/customer/action/get_configuration?organization_id=395d20fa-e63d-46de-8690-b740e7b69a51&version=4039.0.5.3300.67.48.57.15.23.15.7.15.3&x-region=us-south1&group_id=0&jsonp=__lc_static_config",
+    "status": 200,
+    "size": 5364
+  },
+  {
+    "url": "https://api.livechatinc.com/v3.6/customer/action/get_localization?organization_id=395d20fa-e63d-46de-8690-b740e7b69a51&version=388cc59aa204dd75bec8ffb1b5c1735d_38be09edc551eaa60a5329f7a639cce5&language=en&x-region=us-south1&group_id=0&jsonp=__lc_localization",
+    "status": 200,
+    "size": 13268
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetThumbnailProductSearch",
+    "status": 200,
+    "size": 44753
+  },
+  {
+    "url": "https://api.retailjewels.com/api/ProductList/GetThumbnailProductSearch",
+    "status": 200,
+    "size": 35559
+  }
+]

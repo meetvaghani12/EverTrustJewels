@@ -44,7 +44,7 @@ export const COLOR_GRADES: { value: ColorGrade; label: string }[] = [
   { value: "M", label: "M (Faint)" },
 ];
 
-export const WHATSAPP_NUMBER = "919510880097";
+export const WHATSAPP_NUMBER = "918238165370";
 
 export const SITE_CONFIG = {
   name: "EverTrust Jewels",

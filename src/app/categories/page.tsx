@@ -32,9 +32,9 @@ const jewelryCategories = [
     count: 36,
   },
   {
-    name: "Necklaces",
-    slug: "necklaces",
-    description: "Diamond pendants, tennis necklaces, and statement pieces that elevate any look.",
+    name: "pendant",
+    slug: "pendant",
+    description: "Diamond pendants, tennis pendant, and statement pieces that elevate any look.",
     image: "/images/products/SP137-white.jpg",
     count: 36,
   },

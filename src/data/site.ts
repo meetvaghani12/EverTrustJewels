@@ -21,7 +21,7 @@ export const navigation = {
       { label: "Rings", href: "/jewelry?category=rings" },
       { label: "Earrings", href: "/jewelry?category=earrings" },
       { label: "Bracelets", href: "/jewelry?category=bracelets" },
-      { label: "Necklaces", href: "/jewelry?category=necklaces" },
+      { label: "Pendants", href: "/jewelry?category=pendants" },
     ],
     learn: [
       { label: "Diamond Education", href: "/education" },
