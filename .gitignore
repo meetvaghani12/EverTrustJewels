@@ -20,6 +20,9 @@
 # production
 /build
 
+# scraper output (not needed in production)
+/scripts/output/
+
 # misc
 .DS_Store
 *.pem
