@@ -51,6 +51,6 @@ export const SITE_CONFIG = {
   tagline: "Timeless Brilliance, Trusted Forever",
   description: "Discover exquisite diamonds handpicked for perfection. Every stone tells a story of brilliance, fire, and enduring trust.",
   email: "info@evertrustjewels.com",
-  phone: "+91 95108 80097",
+  phone: "+91 82381 65370",
   whatsapp: WHATSAPP_NUMBER,
 };
