@@ -26,6 +26,7 @@ export function DiamondViewer({ shape, title }: DiamondViewerProps) {
             loop
             muted
             playsInline
+            preload="metadata"
             className="h-full w-full object-cover"
           />
         )}
