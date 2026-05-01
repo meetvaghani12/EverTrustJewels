@@ -75,6 +75,38 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
+
+        {/* Map */}
+        <section className="mt-16 mb-16">
+          <div className="mb-6">
+            <p className="text-sm uppercase tracking-[0.2em] text-text-secondary">Our Location</p>
+            <h2 className="mt-2 font-heading text-2xl font-light">Visit Us</h2>
+          </div>
+          <div className="w-full overflow-hidden rounded-sm border border-border" style={{ height: "420px" }}>
+            <iframe
+              src="https://maps.google.com/maps?q=21.2144381,72.8399507&z=17&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="EverTrust Jewels Location"
+            />
+          </div>
+          <a
+            href="https://maps.app.goo.gl/k3s78zdCCens17dg9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-2 text-sm text-text-secondary hover:text-foreground transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            Get Directions
+          </a>
+        </section>
       </div>
     </div>
   );
