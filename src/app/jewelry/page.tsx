@@ -11,7 +11,7 @@ const CATEGORIES: { value: ProductCategory | "all"; label: string }[] = [
   { value: "rings", label: "Rings" },
   { value: "earrings", label: "Earrings" },
   { value: "bracelets", label: "Bracelets" },
-  { value: "pendant", label: "pendant" },
+  { value: "pendant", label: "Pendants & Necklaces" },
 ];
 
 export default function JewelryPage() {
