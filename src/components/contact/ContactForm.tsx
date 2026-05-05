@@ -4,6 +4,8 @@ import { useState } from "react";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   if (submitted) {
     return (
@@ -18,9 +20,25 @@ export function ContactForm() {
 
   return (
     <form
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
-        setSubmitted(true);
+        setLoading(true);
+        setError("");
+        const form = e.currentTarget;
+        const data = Object.fromEntries(new FormData(form));
+        try {
+          const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+          if (!res.ok) throw new Error("Failed to send");
+          setSubmitted(true);
+        } catch {
+          setError("Something went wrong. Please try again or contact us via WhatsApp.");
+        } finally {
+          setLoading(false);
+        }
       }}
       className="space-y-6"
     >
@@ -129,11 +147,16 @@ export function ContactForm() {
         />
       </div>
 
+      {error && (
+        <p className="text-sm text-red-600">{error}</p>
+      )}
+
       <button
         type="submit"
-        className="inline-flex h-12 items-center justify-center bg-foreground px-10 text-sm uppercase tracking-[0.15em] text-white transition-colors hover:bg-foreground/90"
+        disabled={loading}
+        className="inline-flex h-12 items-center justify-center bg-foreground px-10 text-sm uppercase tracking-[0.15em] text-white transition-colors hover:bg-foreground/90 disabled:opacity-50"
       >
-        Send Inquiry
+        {loading ? "Sending..." : "Send Inquiry"}
       </button>
     </form>
   );
