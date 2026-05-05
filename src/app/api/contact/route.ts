@@ -27,6 +27,19 @@ export async function POST(request: Request) {
         <h3>Message</h3>
         <p style="white-space:pre-wrap;">${message}</p>
       `,
+      customerEmail: email,
+      customerHtml: `
+        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
+          <h2 style="color:#333;">Thank you, ${name}!</h2>
+          <p>We've received your inquiry and our diamond experts will get back to you within 24 hours.</p>
+          <hr style="border:none;border-top:1px solid #eee;margin:20px 0;" />
+          <p style="color:#666;font-size:14px;"><strong>Your message:</strong></p>
+          <p style="color:#666;font-size:14px;white-space:pre-wrap;">${message}</p>
+          <hr style="border:none;border-top:1px solid #eee;margin:20px 0;" />
+          <p style="color:#999;font-size:12px;">EverTrust Jewels — Timeless Brilliance, Trusted Forever</p>
+          <p style="color:#999;font-size:12px;">Phone: +91 82381 65370 | Email: evertrustjewels@gmail.com</p>
+        </div>
+      `,
     });
 
     return NextResponse.json({ success: true });

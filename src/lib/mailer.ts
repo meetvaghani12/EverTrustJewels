@@ -11,14 +11,31 @@ const transporter = nodemailer.createTransport({
 export async function sendMail({
   subject,
   html,
+  customerEmail,
+  customerHtml,
 }: {
   subject: string;
   html: string;
+  customerEmail?: string;
+  customerHtml?: string;
 }) {
-  return transporter.sendMail({
-    from: `"EverTrust Jewels" <${process.env.SMTP_EMAIL}>`,
+  const from = `"EverTrust Jewels" <${process.env.SMTP_EMAIL}>`;
+
+  // Send to business
+  await transporter.sendMail({
+    from,
     to: process.env.SMTP_EMAIL,
     subject,
     html,
   });
+
+  // Send confirmation to customer
+  if (customerEmail && customerHtml) {
+    await transporter.sendMail({
+      from,
+      to: customerEmail,
+      subject: "We've received your inquiry — EverTrust Jewels",
+      html: customerHtml,
+    });
+  }
 }
