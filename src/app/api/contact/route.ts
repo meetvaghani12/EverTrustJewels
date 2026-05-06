@@ -30,6 +30,9 @@ export async function POST(request: Request) {
       customerEmail: email,
       customerHtml: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
+          <div style="text-align:center;padding:20px 0;">
+            <img src="https://evertrustjewels.com/images/brand/email-logo.png" alt="EverTrust Jewels" style="height:80px;" />
+          </div>
           <h2 style="color:#333;">Thank you, ${name}!</h2>
           <p>We've received your inquiry and our diamond experts will get back to you within 24 hours.</p>
           <hr style="border:none;border-top:1px solid #eee;margin:20px 0;" />
