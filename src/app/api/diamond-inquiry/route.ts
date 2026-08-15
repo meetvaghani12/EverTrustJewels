@@ -8,12 +8,14 @@ export async function POST(request: Request) {
       email,
       phone,
       diamondName,
-      shape,
       type,
+      shape,
+      shapeOther,
       carat,
       color,
       fancyColor,
       clarity,
+      cut,
       lab,
       fluorescence,
       extra,
@@ -26,16 +28,18 @@ export async function POST(request: Request) {
       );
     }
 
+    const shapeValue = shape === "Other" ? shapeOther || "Other" : shape;
     const colour =
       color === "Fancy Colour" ? fancyColor || "Fancy Colour" : color;
 
     const specs: [string, string][] = [
       ["Diamond", diamondName],
-      ["Shape", shape],
       ["Type", type],
+      ["Shape", shapeValue],
       ["Carat", carat ? `${carat} ct` : ""],
       ["Colour", colour],
       ["Clarity", clarity],
+      ["Cut / Polish / Symmetry", cut],
       ["Lab", lab],
       ["Fluorescence", fluorescence],
     ];

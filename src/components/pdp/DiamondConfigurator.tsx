@@ -4,10 +4,13 @@ import { useEffect, useState } from "react";
 
 export interface DiamondConfig {
   type: string;
+  shape: string;
+  shapeOther: string;
   carat: string;
   color: string;
   fancyColor: string;
   clarity: string;
+  cut: string;
   lab: string;
   fluorescence: string;
   extra: string;
@@ -15,21 +18,38 @@ export interface DiamondConfig {
 
 export const emptyConfig: DiamondConfig = {
   type: "",
+  shape: "",
+  shapeOther: "",
   carat: "",
   color: "",
   fancyColor: "",
   clarity: "",
+  cut: "",
   lab: "",
   fluorescence: "",
   extra: "",
 };
 
 export const FANCY = "Fancy Colour";
+export const SHAPE_OTHER = "Other";
 
 const TYPES = ["Natural", "Lab Grown"];
+const SHAPES = [
+  "Round",
+  "Oval",
+  "Pear",
+  "Cushion",
+  "Emerald",
+  "Radiant",
+  "Princess",
+  "Asscher",
+  "Marquise",
+  "Heart",
+];
 // Colour grades A → Z
 const COLORS = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i));
-const CLARITIES = ["LF", "FL", "IF", "VVS1", "VVS2", "SI1", "NSI2"];
+const CLARITIES = ["FL", "IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2"];
+const CUTS = ["3EX", "VG+"];
 const LABS = ["GIA", "IGI", "Non-certified"];
 const FLUORESCENCE = ["None", "Faint", "Medium", "Strong", "Very Strong"];
 
@@ -107,7 +127,6 @@ export function DiamondConfigurator({
         body: JSON.stringify({
           ...contact,
           diamondName,
-          shape: shapeName,
           ...cfg,
         }),
       });
@@ -193,6 +212,36 @@ export function DiamondConfigurator({
               </div>
 
               <div>
+                <label className={labelClass}>Shape</label>
+                <select
+                  value={cfg.shape}
+                  onChange={(e) => update({ shape: e.target.value })}
+                  className={controlClass}
+                >
+                  <option value="">Select shape</option>
+                  {SHAPES.map((s) => (
+                    <option key={s} value={s}>
+                      {s}
+                    </option>
+                  ))}
+                  <option value={SHAPE_OTHER}>{SHAPE_OTHER} (custom)</option>
+                </select>
+              </div>
+
+              {cfg.shape === SHAPE_OTHER && (
+                <div>
+                  <label className={labelClass}>Other Shape</label>
+                  <input
+                    type="text"
+                    value={cfg.shapeOther}
+                    onChange={(e) => update({ shapeOther: e.target.value })}
+                    placeholder="Enter shape"
+                    className={controlClass}
+                  />
+                </div>
+              )}
+
+              <div>
                 <label className={labelClass}>Carat</label>
                 <input
                   type="number"
@@ -244,6 +293,22 @@ export function DiamondConfigurator({
                 >
                   <option value="">Select clarity</option>
                   {CLARITIES.map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className={labelClass}>Cut / Polish / Symmetry</label>
+                <select
+                  value={cfg.cut}
+                  onChange={(e) => update({ cut: e.target.value })}
+                  className={controlClass}
+                >
+                  <option value="">Select grade</option>
+                  {CUTS.map((c) => (
                     <option key={c} value={c}>
                       {c}
                     </option>
@@ -341,9 +406,7 @@ export function DiamondConfigurator({
               </div>
             </div>
 
-            {error && (
-              <p className="mt-4 text-sm text-platinum">{error}</p>
-            )}
+            {error && <p className="mt-4 text-sm text-platinum">{error}</p>}
 
             {/* Actions */}
             <div className="mt-6 flex flex-wrap justify-end gap-3">

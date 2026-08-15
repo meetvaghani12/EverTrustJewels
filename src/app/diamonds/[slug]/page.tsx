@@ -10,18 +10,22 @@ import { SimilarDiamonds } from "@/components/pdp/SimilarDiamonds";
 import {
   DiamondConfigurator,
   FANCY,
+  SHAPE_OTHER,
   type DiamondConfig,
 } from "@/components/pdp/DiamondConfigurator";
 import { formatGrade } from "@/lib/formatters";
 
 /** One-line summary of the current selection. */
 function summarise(c: DiamondConfig): string {
+  const shape = c.shape === SHAPE_OTHER ? c.shapeOther || "Other" : c.shape;
   const colour = c.color === FANCY ? c.fancyColor || "Fancy Colour" : c.color;
   return [
     c.type,
+    shape,
     c.carat && `${c.carat}ct`,
     colour,
     c.clarity,
+    c.cut,
     c.lab,
     c.fluorescence && `${c.fluorescence} fluorescence`,
   ]
