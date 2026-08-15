@@ -24,12 +24,6 @@ export function InquiryCTA({ title, id }: InquiryCTAProps) {
         </svg>
         Inquire on WhatsApp
       </a>
-      <a
-        href="/contact"
-        className="flex h-12 w-full items-center justify-center border border-foreground text-sm uppercase tracking-[0.15em] transition-colors hover:bg-foreground hover:text-white"
-      >
-        Send Inquiry
-      </a>
     </div>
   );
 }

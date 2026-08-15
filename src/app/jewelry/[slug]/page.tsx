@@ -6,11 +6,13 @@ import Image from "next/image";
 import { products } from "@/data/products";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ProductCard } from "@/components/plp/ProductCard";
+import { JewelryConfigurator } from "@/components/pdp/JewelryConfigurator";
 
 export default function JewelryDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const product = products.find((p) => p.slug === slug);
   const [metal, setMetal] = useState<"white" | "yellow">("white");
+  const [inquiryOpen, setInquiryOpen] = useState(false);
 
   if (!product) notFound();
 
@@ -39,7 +41,10 @@ export default function JewelryDetailPage() {
         <div className="mt-8 grid gap-12 lg:grid-cols-2">
           {/* Left — Image */}
           <div className="lg:sticky lg:top-24">
-            <div className="aspect-square w-full overflow-hidden border border-border bg-gradient-to-br from-background to-ice-blue/10">
+            <div
+              onClick={() => setInquiryOpen(true)}
+              className="relative aspect-square w-full cursor-pointer overflow-hidden border border-border bg-gradient-to-br from-background to-ice-blue/10"
+            >
               {currentImage && (
                 <div className="relative h-full w-full">
                   <Image
@@ -52,6 +57,13 @@ export default function JewelryDetailPage() {
                   />
                 </div>
               )}
+              {/* Inquire hint */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-center gap-2 bg-gradient-to-t from-black/45 to-transparent py-3 text-[10px] uppercase tracking-[0.2em] text-white opacity-90">
+                <span className="flex h-4 w-4 items-center justify-center rounded-full border border-white/70 text-[9px]">
+                  +
+                </span>
+                Click to inquire
+              </div>
             </div>
 
             {/* Metal Toggle */}
@@ -142,12 +154,12 @@ export default function JewelryDetailPage() {
 
             {/* CTA */}
             <div className="mt-8 space-y-3">
-              <a
-                href="/contact"
+              <button
+                onClick={() => setInquiryOpen(true)}
                 className="flex h-12 w-full items-center justify-center bg-foreground text-sm uppercase tracking-[0.15em] text-white transition-colors hover:bg-foreground/90"
               >
                 Inquire About This Piece
-              </a>
+              </button>
               <a
                 href="/custom-order"
                 className="flex h-12 w-full items-center justify-center border border-foreground text-sm uppercase tracking-[0.15em] transition-colors hover:bg-foreground hover:text-white"
@@ -172,6 +184,15 @@ export default function JewelryDetailPage() {
           </section>
         )}
       </div>
+
+      {inquiryOpen && (
+        <JewelryConfigurator
+          onClose={() => setInquiryOpen(false)}
+          productName={product.name}
+          category={product.category}
+          styleNumber={product.styleNumber}
+        />
+      )}
     </div>
   );
 }

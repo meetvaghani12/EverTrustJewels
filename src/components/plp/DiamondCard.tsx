@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Diamond } from "@/types/diamond";
-import { formatCarat, formatGrade } from "@/lib/formatters";
+import { formatGrade } from "@/lib/formatters";
 import { getShapeImage, getShapeVideo } from "@/lib/diamondAssets";
 import { HoverVideo } from "@/components/ui/HoverVideo";
 
@@ -47,17 +47,9 @@ export function DiamondCard({ diamond }: DiamondCardProps) {
         </h3>
 
         <div className="mt-2 flex flex-wrap gap-2">
-          <span className="text-xs text-text-secondary">
-            {formatCarat(diamond.caratWeight)}
+          <span className="text-xs uppercase tracking-[0.1em] text-text-secondary">
+            {formatGrade(diamond.shape)}
           </span>
-          <span className="text-platinum">·</span>
-          <span className="text-xs text-text-secondary">
-            {formatGrade(diamond.cutGrade)}
-          </span>
-          <span className="text-platinum">·</span>
-          <span className="text-xs text-text-secondary">{diamond.clarity}</span>
-          <span className="text-platinum">·</span>
-          <span className="text-xs text-text-secondary">{diamond.color}</span>
         </div>
 
         <div className="mt-4">

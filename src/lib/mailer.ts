@@ -13,11 +13,13 @@ export async function sendMail({
   html,
   customerEmail,
   customerHtml,
+  replyTo,
 }: {
   subject: string;
   html: string;
   customerEmail?: string;
   customerHtml?: string;
+  replyTo?: string;
 }) {
   const from = `"EverTrust Jewels" <${process.env.SMTP_EMAIL}>`;
 
@@ -27,6 +29,7 @@ export async function sendMail({
     to: process.env.SMTP_EMAIL,
     subject,
     html,
+    ...(replyTo ? { replyTo } : {}),
   });
 
   // Send confirmation to customer
