@@ -1,18 +1,28 @@
-import type { Metadata } from "next";
+import Link from "next/link";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
-export const metadata: Metadata = {
+const BREADCRUMBS = [
+  { label: "Home", href: "/" },
+  { label: "About" },
+];
+
+export const metadata = buildMetadata({
   title: "About Us",
   description:
     "Learn about EverTrust Jewels — our commitment to ethical sourcing, expert curation, and timeless diamond excellence.",
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen">
+      <JsonLd schema={breadcrumbSchema(BREADCRUMBS)} />
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About Us" }]} />
+        <Breadcrumbs items={BREADCRUMBS} />
 
         {/* Hero */}
         <section className="mt-12 text-center">
@@ -145,18 +155,18 @@ export default function AboutPage() {
             Explore our collection or speak with our diamond experts.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <a
+            <Link
               href="/diamonds"
               className="inline-flex h-12 items-center justify-center bg-foreground px-8 text-sm uppercase tracking-[0.15em] text-white transition-colors hover:bg-foreground/90"
             >
               Explore Diamonds
-            </a>
-            <a
+            </Link>
+            <Link
               href="/contact"
               className="inline-flex h-12 items-center justify-center border border-foreground px-8 text-sm uppercase tracking-[0.15em] transition-colors hover:bg-foreground hover:text-white"
             >
               Contact Us
-            </a>
+            </Link>
           </div>
         </section>
       </div>

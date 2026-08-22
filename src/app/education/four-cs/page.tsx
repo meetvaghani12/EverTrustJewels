@@ -1,11 +1,21 @@
-import type { Metadata } from "next";
+import Link from "next/link";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
-export const metadata: Metadata = {
+const BREADCRUMBS = [
+  { label: "Home", href: "/" },
+  { label: "Education", href: "/education" },
+  { label: "The 4Cs" },
+];
+
+export const metadata = buildMetadata({
   title: "The 4Cs of Diamonds",
   description:
-    "Learn about Cut, Clarity, Color, and Carat — the four characteristics that determine a diamond's quality and value.",
-};
+    "Cut, clarity, colour and carat explained — the four characteristics that determine a diamond's quality and value, with every grade broken down.",
+  path: "/education/four-cs",
+});
 
 const sections = [
   {
@@ -81,14 +91,20 @@ const sections = [
 export default function FourCsPage() {
   return (
     <div className="min-h-screen">
+      <JsonLd
+        schema={[
+          articleSchema({
+            headline: "The 4Cs of Diamonds",
+            description:
+              "Cut, clarity, colour and carat explained, with every grade in each scale broken down.",
+            path: "/education/four-cs",
+            section: "Diamond Education",
+          }),
+          breadcrumbSchema(BREADCRUMBS),
+        ]}
+      />
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
-        <Breadcrumbs
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Education", href: "/education" },
-            { label: "The 4Cs" },
-          ]}
-        />
+        <Breadcrumbs items={BREADCRUMBS} />
 
         <section className="mt-12 text-center">
           <h1 className="font-heading text-4xl sm:text-5xl font-light tracking-tight">
@@ -135,12 +151,12 @@ export default function FourCsPage() {
           <h2 className="font-heading text-2xl font-light">
             Ready to Apply Your Knowledge?
           </h2>
-          <a
+          <Link
             href="/diamonds"
             className="mt-6 inline-flex h-12 items-center justify-center bg-foreground px-8 text-sm uppercase tracking-[0.15em] text-white transition-colors hover:bg-foreground/90"
           >
             Browse Diamonds
-          </a>
+          </Link>
         </section>
       </div>
     </div>

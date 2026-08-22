@@ -1,20 +1,27 @@
-import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CustomOrderForm } from "@/components/contact/CustomOrderForm";
 
-export const metadata: Metadata = {
+const BREADCRUMBS = [
+  { label: "Home", href: "/" },
+  { label: "Custom Order" },
+];
+
+export const metadata = buildMetadata({
   title: "Custom Order",
   description:
     "Design your perfect diamond with EverTrust Jewels. Tell us your preferences and our experts will source the ideal stone.",
-};
+  path: "/custom-order",
+});
 
 export default function CustomOrderPage() {
   return (
     <div className="min-h-screen">
+      <JsonLd schema={breadcrumbSchema(BREADCRUMBS)} />
       <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
-        <Breadcrumbs
-          items={[{ label: "Home", href: "/" }, { label: "Custom Order" }]}
-        />
+        <Breadcrumbs items={BREADCRUMBS} />
 
         <section className="mt-12 text-center">
           <p className="text-sm uppercase tracking-[0.2em] text-text-secondary">

@@ -1,20 +1,29 @@
-import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { WhatsAppButton } from "@/components/contact/WhatsAppButton";
 import { SITE_CONFIG } from "@/lib/constants";
 
-export const metadata: Metadata = {
+const BREADCRUMBS = [
+  { label: "Home", href: "/" },
+  { label: "Contact" },
+];
+
+export const metadata = buildMetadata({
   title: "Contact Us",
   description:
-    "Get in touch with EverTrust Jewels. Speak with our diamond experts for personalized guidance.",
-};
+    "Get in touch with EverTrust Jewels. Speak with our diamond experts for personalised guidance on diamonds, jewellery and custom orders.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen">
+      <JsonLd schema={breadcrumbSchema(BREADCRUMBS)} />
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
+        <Breadcrumbs items={BREADCRUMBS} />
 
         <section className="mt-12 text-center">
           <p className="text-sm uppercase tracking-[0.2em] text-text-secondary">

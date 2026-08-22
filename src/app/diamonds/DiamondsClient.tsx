@@ -15,7 +15,19 @@ import { DiamondShape, CutGrade, ClarityGrade, ColorGrade } from "@/types/diamon
 
 const ITEMS_PER_PAGE = 12;
 
-export default function DiamondsClient() {
+interface DiamondsClientProps {
+  /** Heading for the current facet — keeps the <h1> in step with the <title>. */
+  heading?: string;
+  /** Intro copy shown only on a single-shape landing page. */
+  intro?: string;
+  breadcrumbs?: { label: string; href?: string }[];
+}
+
+export default function DiamondsClient({
+  heading = "Our Diamonds",
+  intro,
+  breadcrumbs = [{ label: "Home", href: "/" }, { label: "Diamonds" }],
+}: DiamondsClientProps) {
   const searchParams = useSearchParams();
 
   const initialFilters = useMemo((): FilterState => {
@@ -67,17 +79,22 @@ export default function DiamondsClient() {
   return (
     <div className="min-h-screen">
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Diamonds" }]} />
+        <Breadcrumbs items={breadcrumbs} />
 
         <div className="mt-8 flex items-end justify-between">
           <div>
             <h1 className="font-heading text-3xl sm:text-4xl font-light tracking-tight">
-              Our Diamonds
+              {heading}
             </h1>
             <p className="mt-2 text-sm text-text-secondary">
               {filteredDiamonds.length}{" "}
               {filteredDiamonds.length === 1 ? "diamond" : "diamonds"} found
             </p>
+            {intro && (
+              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-text-secondary">
+                {intro}
+              </p>
+            )}
           </div>
           <div className="flex items-center gap-4">
             <SortDropdown

@@ -1,48 +1,51 @@
-"use client";
-
-import { useState } from "react";
-import { notFound, useParams } from "next/navigation";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { diamonds } from "@/data/diamonds";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { DiamondViewer } from "@/components/pdp/DiamondViewer";
-import { InquiryCTA } from "@/components/pdp/InquiryCTA";
-import { SimilarDiamonds } from "@/components/pdp/SimilarDiamonds";
-import {
-  DiamondConfigurator,
-  FANCY,
-  SHAPE_OTHER,
-  type DiamondConfig,
-} from "@/components/pdp/DiamondConfigurator";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema, diamondProductSchema } from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
 import { formatGrade } from "@/lib/formatters";
+import DiamondDetailClient from "./DiamondDetailClient";
 
-/** One-line summary of the current selection. */
-function summarise(c: DiamondConfig): string {
-  const shape = c.shape === SHAPE_OTHER ? c.shapeOther || "Other" : c.shape;
-  const colour = c.color === FANCY ? c.fancyColor || "Fancy Colour" : c.color;
-  return [
-    c.type,
-    shape,
-    c.carat && `${c.carat}ct`,
-    colour,
-    c.clarity,
-    c.cut,
-    c.lab,
-    c.fluorescence && `${c.fluorescence} fluorescence`,
-  ]
-    .filter(Boolean)
-    .join(" · ");
+interface PageProps {
+  params: Promise<{ slug: string }>;
 }
 
-export default function DiamondDetailPage() {
-  const { slug } = useParams<{ slug: string }>();
-  const diamond = diamonds.find((d) => d.slug === slug);
+export function generateStaticParams() {
+  return diamonds.map((diamond) => ({ slug: diamond.slug }));
+}
 
-  const [configOpen, setConfigOpen] = useState(false);
-  const [config, setConfig] = useState<DiamondConfig | null>(null);
+function getDiamond(slug: string) {
+  return diamonds.find((diamond) => diamond.slug === slug);
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const diamond = getDiamond(slug);
 
   if (!diamond) {
-    notFound();
+    return { title: "Diamond Not Found", robots: { index: false, follow: false } };
   }
+
+  // The dataset already carries hand-written meta copy — prefer it, and fall
+  // back to a spec-derived description so no page is ever left without one.
+  const description =
+    diamond.metaDescription ||
+    `${diamond.caratWeight} ct ${formatGrade(diamond.shape)} cut diamond, ${diamond.color} colour, ${diamond.clarity} clarity, ${diamond.certificate.lab} certified.`;
+
+  return buildMetadata({
+    title: diamond.metaTitle || diamond.title,
+    description,
+    path: `/diamonds/${diamond.slug}`,
+    images: diamond.images.length ? diamond.images : undefined,
+  });
+}
+
+export default async function DiamondDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  const diamond = getDiamond(slug);
+
+  if (!diamond) notFound();
 
   const similar = diamonds
     .filter(
@@ -53,109 +56,23 @@ export default function DiamondDetailPage() {
     )
     .slice(0, 4);
 
-  const shapeLabel = formatGrade(diamond.shape);
-
   return (
-    <div className="min-h-screen">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <Breadcrumbs
-          items={[
+    <>
+      <JsonLd
+        schema={[
+          diamondProductSchema(diamond),
+          breadcrumbSchema([
             { label: "Home", href: "/" },
             { label: "Diamonds", href: "/diamonds" },
             { label: diamond.title },
-          ]}
-        />
-
-        <div className="mt-8 grid gap-12 lg:grid-cols-2">
-          {/* Left — Viewer */}
-          <div>
-            <DiamondViewer
-              shape={diamond.shape}
-              title={diamond.title}
-              onConfigure={() => setConfigOpen(true)}
-            />
-          </div>
-
-          {/* Right — Name + shape only */}
-          <div>
-            {/* Tags */}
-            <div className="flex gap-2">
-              {diamond.isNew && (
-                <span className="border border-foreground px-3 py-1 text-[10px] uppercase tracking-[0.15em]">
-                  New
-                </span>
-              )}
-              {diamond.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="border border-border px-3 py-1 text-[10px] uppercase tracking-[0.15em] text-text-secondary"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            <h1 className="mt-4 font-heading text-3xl sm:text-4xl font-light tracking-tight">
-              {diamond.title}
-            </h1>
-
-            {/* Shape — the only detail we keep */}
-            <div className="mt-4 flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-text-secondary">
-              <span>Shape</span>
-              <span className="text-platinum">·</span>
-              <span className="text-foreground">{shapeLabel}</span>
-            </div>
-
-            {/* Current selection summary */}
-            {config && summarise(config) && (
-              <div className="mt-6 border border-border bg-card p-4">
-                <p className="text-[10px] uppercase tracking-[0.15em] text-text-secondary">
-                  Your Selection
-                </p>
-                <p className="mt-2 font-heading text-lg font-light">
-                  {summarise(config)}
-                </p>
-                {config.extra && (
-                  <p className="mt-2 text-sm text-text-secondary">
-                    {config.extra}
-                  </p>
-                )}
-              </div>
-            )}
-
-            {/* Divider */}
-            <div className="mt-8 border-t border-border" />
-
-            {/* Configure + Inquiry CTAs */}
-            <div className="mt-8 space-y-3">
-              <button
-                onClick={() => setConfigOpen(true)}
-                className="flex h-12 w-full items-center justify-center bg-foreground text-sm uppercase tracking-[0.15em] text-white transition-colors hover:bg-foreground/90"
-              >
-                {config ? "Edit Selection" : "Configure This Diamond"}
-              </button>
-              <InquiryCTA title={diamond.title} id={diamond.id} />
-            </div>
-          </div>
-        </div>
-
-        {/* Similar Diamonds */}
-        {similar.length > 0 && (
-          <section className="mt-24">
-            <SimilarDiamonds diamonds={similar} />
-          </section>
-        )}
-      </div>
-
-      {configOpen && (
-        <DiamondConfigurator
-          onClose={() => setConfigOpen(false)}
-          onSave={setConfig}
-          diamondName={diamond.title}
-          shapeName={shapeLabel}
-          initial={config}
-        />
-      )}
-    </div>
+          ]),
+        ]}
+      />
+      <DiamondDetailClient
+        diamond={diamond}
+        similar={similar}
+        shapeLabel={formatGrade(diamond.shape)}
+      />
+    </>
   );
 }

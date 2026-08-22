@@ -1,52 +1,67 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { categories } from "@/data/categories";
 import { diamonds } from "@/data/diamonds";
+import { products } from "@/data/products";
 import { getShapeImage, getShapeVideo } from "@/lib/diamondAssets";
 import { HoverVideo } from "@/components/ui/HoverVideo";
+import { JEWELRY_CATEGORIES } from "@/lib/catalog";
+import { breadcrumbSchema, collectionSchema } from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
 import { DiamondShape } from "@/types/diamond";
 
-const jewelryCategories = [
-  {
-    name: "Rings",
-    slug: "rings",
-    description: "Engagement rings, wedding bands, and fashion rings crafted with precision.",
-    image: "/images/products/MS118A-6-white.jpg",
-    count: 52,
-  },
-  {
-    name: "Earrings",
-    slug: "earrings",
-    description: "Stud earrings, drop earrings, and hoops that capture the light beautifully.",
-    image: "/images/products/ST991-white.jpg",
-    count: 52,
-  },
-  {
-    name: "Bracelets",
-    slug: "bracelets",
-    description: "Tennis bracelets, bangles, and designer bracelets for every occasion.",
-    image: "/images/products/SB704-white.jpg",
-    count: 36,
-  },
-  {
-    name: "pendant",
-    slug: "pendant",
-    description: "Diamond pendants, tennis pendant, and statement pieces that elevate any look.",
-    image: "/images/products/SP137-white.jpg",
-    count: 36,
-  },
-];
+const CATEGORY_IMAGES: Record<string, string> = {
+  rings: "/images/products/MS118A-6-white.jpg",
+  earrings: "/images/products/ST991-white.jpg",
+  bracelets: "/images/products/SB704-white.jpg",
+  pendant: "/images/products/SP137-white.jpg",
+};
+
+const BREADCRUMBS = [{ label: "Home", href: "/" }, { label: "Categories" }];
+
+export const metadata = buildMetadata({
+  title: "Diamond Shapes & Jewelry Categories",
+  description:
+    "Shop diamonds by shape — round, princess, emerald, oval, cushion and more — or browse rings, earrings, bracelets and pendants from EverTrust Jewels.",
+  path: "/categories",
+});
 
 export default function CategoriesPage() {
+  // Counts are derived from the catalogue so the copy can never drift.
+  const jewelryCategories = JEWELRY_CATEGORIES.map((category) => ({
+    ...category,
+    image: CATEGORY_IMAGES[category.slug],
+    count: products.filter((product) => product.category === category.slug).length,
+  }));
+
   return (
     <div className="min-h-screen">
+      <JsonLd
+        schema={[
+          collectionSchema({
+            name: "Diamond Shapes & Jewelry Categories",
+            description:
+              "Browse diamonds by shape and fine jewellery by category at EverTrust Jewels.",
+            path: "/categories",
+            items: [
+              ...categories.map((category) => ({
+                name: `${category.label} Diamonds`,
+                url: `/diamonds?shapes=${category.shape}`,
+              })),
+              ...jewelryCategories.map((category) => ({
+                name: category.label,
+                url: `/jewelry?category=${category.slug}`,
+              })),
+            ],
+          }),
+          breadcrumbSchema(BREADCRUMBS),
+        ]}
+      />
+
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-        <Breadcrumbs
-          items={[{ label: "Home", href: "/" }, { label: "Categories" }]}
-        />
+        <Breadcrumbs items={BREADCRUMBS} />
 
         {/* Diamond Categories */}
         <section className="mt-12 text-center">
@@ -75,7 +90,7 @@ export default function CategoriesPage() {
                   <HoverVideo
                     imageSrc={getShapeImage(shape)}
                     videoSrc={getShapeVideo(shape)}
-                    alt={`${cat.label} diamond`}
+                    alt={`${cat.label} cut diamond`}
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
                     className="h-full w-full"
                   />
@@ -90,7 +105,8 @@ export default function CategoriesPage() {
                     {cat.description}
                   </p>
                   <p className="mt-3 text-xs uppercase tracking-[0.15em] text-platinum group-hover:text-foreground transition-colors">
-                    Shop {cat.label} &rarr;
+                    Shop {cat.label}
+                    {count > 0 && ` (${count})`} &rarr;
                   </p>
                 </div>
               </Link>
@@ -112,38 +128,36 @@ export default function CategoriesPage() {
         </section>
 
         <div className="mt-12 mb-16 grid gap-4 sm:gap-6 grid-cols-2 lg:grid-cols-4">
-          {jewelryCategories.map((cat) => {
-            return (
-              <Link
-                key={cat.slug}
-                href={`/jewelry?category=${cat.slug}`}
-                className="group border border-border bg-card overflow-hidden transition-all hover:border-foreground hover:shadow-lg"
-              >
-                <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-background to-ice-blue/10">
-                  <Image
-                    src={cat.image}
-                    alt={cat.name}
-                    fill
-                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 640px) 50vw, 25vw"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 pt-12">
-                    <h2 className="font-heading text-lg sm:text-xl text-white">
-                      {cat.name}
-                    </h2>
-                  </div>
+          {jewelryCategories.map((cat) => (
+            <Link
+              key={cat.slug}
+              href={`/jewelry?category=${cat.slug}`}
+              className="group border border-border bg-card overflow-hidden transition-all hover:border-foreground hover:shadow-lg"
+            >
+              <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-background to-ice-blue/10">
+                <Image
+                  src={cat.image}
+                  alt={`${cat.label} — diamond jewelry by EverTrust Jewels`}
+                  fill
+                  className="object-contain p-4 transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 640px) 50vw, 25vw"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 pt-12">
+                  <h3 className="font-heading text-lg sm:text-xl text-white">
+                    {cat.label}
+                  </h3>
                 </div>
-                <div className="p-4 sm:p-5">
-                  <p className="text-xs sm:text-sm text-text-secondary leading-relaxed line-clamp-2">
-                    {cat.description}
-                  </p>
-                  <p className="mt-3 text-xs uppercase tracking-[0.15em] text-platinum group-hover:text-foreground transition-colors">
-                    {cat.count} pieces &rarr;
-                  </p>
-                </div>
-              </Link>
-            );
-          })}
+              </div>
+              <div className="p-4 sm:p-5">
+                <p className="text-xs sm:text-sm text-text-secondary leading-relaxed line-clamp-2">
+                  {cat.description}
+                </p>
+                <p className="mt-3 text-xs uppercase tracking-[0.15em] text-platinum group-hover:text-foreground transition-colors">
+                  {cat.count} pieces &rarr;
+                </p>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </div>

@@ -1,18 +1,38 @@
-import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
-export const metadata: Metadata = {
+const BREADCRUMBS = [
+  { label: "Home", href: "/" },
+  { label: "Education" },
+];
+
+export const metadata = buildMetadata({
   title: "Diamond Education",
   description:
     "Learn everything about diamonds — the 4Cs, shapes, and how to choose the perfect stone. Expert guidance from EverTrust Jewels.",
-};
+  path: "/education",
+});
 
 export default function EducationPage() {
   return (
     <div className="min-h-screen">
+      <JsonLd
+        schema={[
+          articleSchema({
+            headline: "Diamond Education",
+            description:
+              "A plain-language introduction to diamond quality: the 4Cs, the ten shapes, and how to choose a stone.",
+            path: "/education",
+            section: "Diamond Education",
+          }),
+          breadcrumbSchema(BREADCRUMBS),
+        ]}
+      />
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Education" }]} />
+        <Breadcrumbs items={BREADCRUMBS} />
 
         <section className="mt-12 text-center">
           <p className="text-sm uppercase tracking-[0.2em] text-text-secondary">
@@ -113,12 +133,12 @@ export default function EducationPage() {
           <p className="text-text-secondary">
             Ready to find your perfect diamond?
           </p>
-          <a
+          <Link
             href="/diamonds"
             className="mt-6 inline-flex h-12 items-center justify-center bg-foreground px-8 text-sm uppercase tracking-[0.15em] text-white transition-colors hover:bg-foreground/90"
           >
             Explore Collection
-          </a>
+          </Link>
         </section>
       </div>
     </div>

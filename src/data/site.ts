@@ -18,10 +18,11 @@ export const navigation = {
     ],
     jewelry: [
       { label: "All Jewelry", href: "/jewelry" },
-      { label: "Rings", href: "/jewelry?category=rings" },
-      { label: "Earrings", href: "/jewelry?category=earrings" },
-      { label: "Bracelets", href: "/jewelry?category=bracelets" },
-      { label: "Pendants", href: "/jewelry?category=pendants" },
+      { label: "All Collections", href: "/jewelry/collections" },
+      { label: "Engagement Rings", href: "/jewelry/collections/diamond-engagement-rings" },
+      { label: "Tennis Bracelets", href: "/jewelry/collections/tennis-bracelets" },
+      { label: "Diamond Studs", href: "/jewelry/collections/stud-diamond-earrings" },
+      { label: "Diamond Pendants", href: "/jewelry/collections/diamond-pendant" },
     ],
     learn: [
       { label: "Diamond Education", href: "/education" },
