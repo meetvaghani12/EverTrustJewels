@@ -22,7 +22,7 @@ export function DiamondCard({ diamond }: DiamondCardProps) {
           imageSrc={getShapeImage(diamond.shape)}
           videoSrc={getShapeVideo(diamond.shape)}
           alt={diamond.title}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
           className="h-full w-full"
         />
         {/* Badges */}

@@ -19,13 +19,19 @@ export default function HeroSection() {
     <>
       {/* Section 1: Full-screen video only */}
       <section className="relative h-screen w-full -mt-20">
+        {/* The source file is 4K HEVC with an audio track — HEVC in MP4 is not
+            reliably decodable in Chrome or Firefox, so this uses a 1080p H.264
+            derivative (11.4 MB -> 0.39 MB, audio stripped). The poster paints
+            immediately instead of leaving a blank full-screen section. */}
         <video
-          src="/videos/intro.mp4"
+          src="/videos/intro-1080p.mp4"
+          poster="/images/brand/intro-poster.jpg"
           autoPlay
           loop
           muted
           playsInline
           preload="metadata"
+          aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
